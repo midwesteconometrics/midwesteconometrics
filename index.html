@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midwest Econometrics Group (MEG)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        .header h2 {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            font-weight: 400;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .basic-info {
+            background: white;
+            padding: 30px;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .info-item h4 {
+            font-size: 1.2rem;
+            color: #34495e;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .info-item a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .info-item a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .collapsible-section {
+            margin-bottom: 40px;
+        }
+
+        .collapsible-header {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .collapsible-header:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left-color: #3498db;
+        }
+
+        .collapsible-header h3 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 1.3rem;
+            font-weight: 400;
+            border: none;
+            padding: 0;
+        }
+
+        .collapsible-header .toggle-icon {
+            float: right;
+            font-size: 1.2rem;
+            color: #999;
+            transition: transform 0.2s ease;
+        }
+
+        .collapsible-header.active .toggle-icon {
+            transform: rotate(45deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: white;
+            margin-top: 1px;
+        }
+
+        .collapsible-content.active {
+            max-height: 2000px;
+        }
+
+        .collapsible-inner {
+            padding: 30px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        table th {
+            background: #f8f9fa;
+            color: #495057;
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: 500;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .special-note {
+            font-style: italic;
+            color: #6c757d;
+            font-size: 0.85em;
+        }
+
+        .award-entry {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .award-entry:last-child {
+            border-bottom: none;
+        }
+
+        .award-year {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .award-details {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .award-details strong {
+            color: #495057;
+            font-weight: 500;
+            display: inline-block;
+            min-width: 80px;
+        }
+
+        .meetings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .meeting-item {
+            background: white;
+            padding: 15px;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: all 0.2s ease;
+        }
+
+        .meeting-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .meeting-year {
+            font-weight: 500;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .meeting-year a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .meeting-year a:hover {
+            text-decoration: underline;
+        }
+
+        .meeting-location {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .links-section {
+            background: white;
+            padding: 30px;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .links-section h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .email-links {
+            margin-bottom: 25px;
+        }
+
+        .email-links a {
+            color: #e74c3c;
+            text-decoration: none;
+            margin: 0 8px;
+            font-weight: 400;
+        }
+
+        .email-links a:hover {
+            text-decoration: underline;
+        }
+
+        .external-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .external-links a {
+            color: #34495e;
+            text-decoration: none;
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .external-links a:hover {
+            background-color: #f8f9fa;
+            border-color: #bbb;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 15px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .meetings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .external-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            table {
+                font-size: 0.8rem;
+            }
+
+            table th,
+            table td {
+                padding: 8px 6px;
+            }
+
+            .collapsible-header {
+                padding: 15px 20px;
+            }
+
+            .collapsible-inner {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .header h1 {
+                font-size: 1.7rem;
+            }
+
+            .basic-info,
+            .collapsible-header,
+            .links-section {
+                padding: 20px;
+            }
+
+            table th,
+            table td {
+                padding: 6px 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Midwest Econometrics Group</h1>
+            <h2>Econometric Theory, Methods and Empirical Applications</h2>
+        </header>
+
+        <div class="basic-info">
+            <div class="info-grid">
+                <div class="info-item">
+                    <h4>MEG Director/Coordinator</h4>
+                    <p><a href="https://economics.indiana.edu/about/faculty/chang-yoosoon.html">Yoosoon Chang</a><br>
+                    Indiana University</p>
+                </div>
+                <div class="info-item">
+                    <h4>Upcoming MEG 2025 Meeting</h4>
+                    <p><a href="https://economics.illinois.edu/">University of Illinois at Urbana-Champaign</a><br>
+                    2025</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="collapsible-section">
+            <div class="collapsible-header" onclick="toggleSection('awards')">
+                <h3>MEG Best Student Paper Award</h3>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="collapsible-content" id="awards">
+                <div class="collapsible-inner">
+                    <div class="award-entry">
+                        <div class="award-year">2024</div>
+                        <div class="award-details"><strong>Host:</strong> University of Kentucky</div>
+                        <div class="award-details"><strong>Winners:</strong> Kaicheng Chen, Bruno Fava</div>
+                        <div class="award-details"><strong>Selectors:</strong> Christopher Bollinger, Michael McCracken, Jeffrey Wooldridge</div>
+                    </div>
+                    <div class="award-entry">
+                        <div class="award-year">2023</div>
+                        <div class="award-details"><strong>Host:</strong> Cleveland FED</div>
+                        <div class="award-details"><strong>Winners:</strong> Yukun Ma, Aaron Mora Melendez</div>
+                        <div class="award-details"><strong>Selectors:</strong> Michael McCracken, James Mitchell, Jeffrey Wooldridge</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="collapsible-section">
+            <div class="collapsible-header" onclick="toggleSection('fellows')">
+                <h3>Fellows of the Midwest Econometrics Group</h3>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="collapsible-content" id="fellows">
+                <div class="collapsible-inner">
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Host Year</th>
+                                    <th>Keynote Year</th>
+                                    <th>Fellow</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>—</td><td>—</td><td>Jason I. Abrevaya <span class="special-note">(former MEG Co-Director/Coordinator)</span></td></tr>
+                                <tr><td>1993</td><td>—</td><td>Anil K. Bera</td></tr>
+                                <tr><td>1999</td><td>—</td><td>Yannis Bilias</td></tr>
+                                <tr><td>2019</td><td>—</td><td>Jason Blevins</td></tr>
+                                <tr><td>2012</td><td>—</td><td>Chris Bollinger</td></tr>
+                                <tr><td>2024</td><td>—</td><td>Chris Bollinger</td></tr>
+                                <tr><td>—</td><td>—</td><td>Yoonsoon Chang <span class="special-note">(MEG Director/Coordinator)</span></td></tr>
+                                <tr><td>2013</td><td>—</td><td>Yoonsoon Chang</td></tr>
+                                <tr><td>—</td><td>2016</td><td>Xiaohong Chen</td></tr>
+                                <tr><td>—</td><td>2014</td><td>Victor Chernozhukov</td></tr>
+                                <tr><td>1995</td><td>2009</td><td>Siddhartha Chib</td></tr>
+                                <tr><td>2010</td><td>2010</td><td>Siddhartha Chib</td></tr>
+                                <tr><td>2023</td><td>—</td><td>Todd Clark</td></tr>
+                                <tr><td>2002</td><td>—</td><td>Stephen R. Cosslett</td></tr>
+                                <tr><td>2019</td><td>—</td><td>Robert de Jong</td></tr>
+                                <tr><td>—</td><td>2015</td><td>Graham Elliott</td></tr>
+                                <tr><td>2001</td><td>—</td><td>Andrew J. Filardo</td></tr>
+                                <tr><td>2014</td><td>—</td><td>Antonio Galvao</td></tr>
+                                <tr><td>1992</td><td>1995</td><td>John F. Geweke</td></tr>
+                                <tr><td>—</td><td>2017</td><td>Domenico Giannone</td></tr>
+                                <tr><td>1996</td><td>1994</td><td>Arthur S. Goldberger</td></tr>
+                                <tr><td>—</td><td>2005</td><td>William H. Greene</td></tr>
+                                <tr><td>—</td><td>2010</td><td>Edward Greenberg</td></tr>
+                                <tr><td>—</td><td>2006</td><td>Bruce E. Hansen</td></tr>
+                                <tr><td>—</td><td>2010</td><td>Bruce E. Hansen</td></tr>
+                                <tr><td>2011</td><td>—</td><td>Christian B. Hansen</td></tr>
+                                <tr><td>—</td><td>2004</td><td>Lars P. Hansen</td></tr>
+                                <tr><td>2000</td><td>1998</td><td>James J. Heckman</td></tr>
+                                <tr><td>2024</td><td>—</td><td>Ana Maria Herrera</td></tr>
+                                <tr><td>1994</td><td>2002</td><td>Joel L. Horowitz</td></tr>
+                                <tr><td>—</td><td>2022</td><td>Michael Jansson</td></tr>
+                                <tr><td>—</td><td>2003</td><td>George G. Judge</td></tr>
+                                <tr><td>2008</td><td>—</td><td>Ted Juhl</td></tr>
+                                <tr><td>—</td><td>2019</td><td>Shakeeb Khan</td></tr>
+                                <tr><td>1993</td><td>2011</td><td>Roger Koenker</td></tr>
+                                <tr><td>2016</td><td>—</td><td>Roger Koenker</td></tr>
+                                <tr><td>2024</td><td>—</td><td>Carlos Lamarche</td></tr>
+                                <tr><td>2019</td><td>—</td><td>Lung-fei Lee</td></tr>
+                                <tr><td>2019</td><td>—</td><td>Audrey Light</td></tr>
+                                <tr><td>2003</td><td>—</td><td>David M. Mandy</td></tr>
+                                <tr><td>—</td><td>2024</td><td>Elena Manresa</td></tr>
+                                <tr><td>1996</td><td>1993</td><td>Charles F. Manski</td></tr>
+                                <tr><td>—</td><td>2018</td><td>Charles F. Manski</td></tr>
+                                <tr><td>—</td><td>—</td><td>Lawrence C. Marsh <span class="special-note">(former MEG Director/Coordinator)</span></td></tr>
+                                <tr><td>1991</td><td>—</td><td>Lawrence C. Marsh <span class="special-note">(founder of Midwest Econometrics Group)</span></td></tr>
+                                <tr><td>2004</td><td>2000</td><td>Rosa L. Matzkin</td></tr>
+                                <tr><td>2015</td><td>—</td><td>Michael McCracken</td></tr>
+                                <tr><td>2006</td><td>—</td><td>Jeffrey A. Mills</td></tr>
+                                <tr><td>2023</td><td>—</td><td>James Mitchell</td></tr>
+                                <tr><td>2015</td><td>—</td><td>Michael Owyang</td></tr>
+                                <tr><td>—</td><td>2023</td><td>Andrew Patton</td></tr>
+                                <tr><td>—</td><td>2007</td><td>Peter C.B. Phillips</td></tr>
+                                <tr><td>2007</td><td>—</td><td>David E. Rapach</td></tr>
+                                <tr><td>—</td><td>2017</td><td>Barbara Rossi</td></tr>
+                                <tr><td>—</td><td>1996</td><td>N. Eugene Savin</td></tr>
+                                <tr><td>1997</td><td>1992</td><td>Peter J. Schmidt</td></tr>
+                                <tr><td>—</td><td>2016</td><td>Frank Schorfheide</td></tr>
+                                <tr><td>2017</td><td>—</td><td>Tatevik Sekhposyan</td></tr>
+                                <tr><td>2005</td><td>—</td><td>Subhash C. Sharma</td></tr>
+                                <tr><td>—</td><td>2012</td><td>Elie Tamer</td></tr>
+                                <tr><td>—</td><td>—</td><td>Justin Tobias <span class="special-note">(former MEG Co-Director/Coordinator)</span></td></tr>
+                                <tr><td>2009</td><td>—</td><td>Justin Tobias</td></tr>
+                                <tr><td>1998</td><td>1997</td><td>Pravin K. Trivedi</td></tr>
+                                <tr><td>2022</td><td>—</td><td>Tim Vogelsang</td></tr>
+                                <tr><td>—</td><td>2008</td><td>Mark W. Watson</td></tr>
+                                <tr><td>2018</td><td>2001</td><td>Kenneth D. West</td></tr>
+                                <tr><td>2022</td><td>1999</td><td>Jeffrey M. Wooldridge</td></tr>
+                                <tr><td>—</td><td>1991</td><td>Arnold Zellner</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <h3>MEG Meetings</h3>
+            <div class="meetings-grid">
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="https://economics.illinois.edu/">2025</a></div>
+                    <div class="meeting-location">University of Illinois (Urbana-Champaign)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2024.pdf">2024</a></div>
+                    <div class="meeting-location">University of Kentucky (Lexington)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2023.pdf">2023</a></div>
+                    <div class="meeting-location">Federal Reserve Bank of Cleveland</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2022.pdf">2022</a></div>
+                    <div class="meeting-location">Michigan State University (East Lansing)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year">2021</div>
+                    <div class="meeting-location">Postponed due to COVID-19</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year">2020</div>
+                    <div class="meeting-location">Postponed due to COVID-19</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2019.pdf">2019</a></div>
+                    <div class="meeting-location">Ohio State University (Columbus)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2018.pdf">2018</a></div>
+                    <div class="meeting-location">University of Wisconsin (Madison)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2017.pdf">2017</a></div>
+                    <div class="meeting-location">Texas A&M University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2016.pdf">2016</a></div>
+                    <div class="meeting-location">University of Illinois (Urbana-Champaign)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2015.pdf">2015</a></div>
+                    <div class="meeting-location">Federal Reserve Bank of St. Louis</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2014.pdf">2014</a></div>
+                    <div class="meeting-location">University of Iowa (Iowa City)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2013.pdf">2013</a></div>
+                    <div class="meeting-location">Indiana University (Bloomington)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2012.pdf">2012</a></div>
+                    <div class="meeting-location">University of Kentucky (Lexington)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="http://faculty.chicagobooth.edu/midwest.econometrics/index.html">2011</a></div>
+                    <div class="meeting-location">University of Chicago (Booth)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2010.pdf">2010</a></div>
+                    <div class="meeting-location">Washington University (St. Louis)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2009.pdf">2009</a></div>
+                    <div class="meeting-location">Purdue University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2008.pdf">2008</a></div>
+                    <div class="meeting-location">University of Kansas</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="http://pages.slu.edu/faculty/rapachde/MEG_07.htm">2007</a></div>
+                    <div class="meeting-location">St. Louis University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2006.pdf">2006</a></div>
+                    <div class="meeting-location">University of Cincinnati</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2005.pdf">2005</a></div>
+                    <div class="meeting-location">Southern Illinois University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2004.html">2004</a></div>
+                    <div class="meeting-location">Northwestern University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2003.html">2003</a></div>
+                    <div class="meeting-location">University of Missouri</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2002.html">2002</a></div>
+                    <div class="meeting-location">Ohio State University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2001.html">2001</a></div>
+                    <div class="meeting-location">Federal Reserve Bank of Kansas City</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2000.html">2000</a></div>
+                    <div class="meeting-location">University of Chicago</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1999.html">1999</a></div>
+                    <div class="meeting-location">Iowa State University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1998.html">1998</a></div>
+                    <div class="meeting-location">Indiana University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1997.html">1997</a></div>
+                    <div class="meeting-location">Michigan State University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1996.html">1996</a></div>
+                    <div class="meeting-location">University of Wisconsin</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1995.html">1995</a></div>
+                    <div class="meeting-location">Washington University</td>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1994.html">1994</a></div>
+                    <div class="meeting-location">University of Iowa</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1993.html">1993</a></div>
+                    <div class="meeting-location">University of Illinois</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1992.html">1992</a></div>
+                    <div class="meeting-location">Federal Reserve Bank of Minneapolis</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1991.html">1991</a></div>
+                    <div class="meeting-location">University of Notre Dame</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="links-section">
+            <h4>Email List</h4>
+            <div class="email-links">
+                <a href="https://list.indiana.edu/sympa/subscribe/meg-l">Join</a> or 
+                <a href="https://list.indiana.edu/sympa/sigrequest/meg-l">Leave</a> MEG email list
+            </div>
+            
+            <h4>Related Organizations</h4>
+            <div class="external-links">
+                <a href="http://www.econometricsociety.org/">The Econometric Society</a>
+                <a href="http://mea.grinnell.edu">Midwest Economics Association</a>
+                <a href="http://midwestfinance.org">Midwest Finance Association</a>
+                <a href="http://condor.depaul.edu/iea">Illinois Economics Association</a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleSection(sectionId) {
+            const content = document.getElementById(sectionId);
+            const header = content.previousElementSibling;
+            const icon = header.querySelector('.toggle-icon');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                header.classList.remove('active');
+                icon.textContent = '+';
+            } else {
+                content.classList.add('active');
+                header.classList.add('active');
+                icon.textContent = '×';
+            }
+        }
+    </script>
+</body>
+</html>
