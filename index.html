@@ -29,11 +29,11 @@
             text-align: center;
             margin-bottom: 60px;
             padding-bottom: 30px;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 2px solid #dc3545;
         }
 
         .header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: #2c3e50;
             margin-bottom: 10px;
             font-weight: 400;
@@ -41,7 +41,7 @@
         }
 
         .header h2 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #666;
             font-weight: 300;
             font-style: italic;
@@ -53,43 +53,87 @@
 
         .section h3 {
             color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            font-weight: 500;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #dc3545;
+        }
+
+        .upcoming-meeting {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(220, 53, 69, 0.2);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .upcoming-meeting h3 {
+            color: white;
+            font-size: 1.8rem;
             margin-bottom: 20px;
-            font-size: 1.4rem;
-            font-weight: 400;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #e8e8e8;
+            border: none;
+            padding: 0;
         }
 
-        .basic-info {
-            background: white;
-            padding: 30px;
-            border-radius: 2px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
+        .upcoming-meeting .meeting-info {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
         }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .info-item h4 {
-            font-size: 1.2rem;
-            color: #34495e;
-            margin-bottom: 10px;
-            font-weight: 400;
-        }
-
-        .info-item a {
-            color: #3498db;
+        .upcoming-meeting .meeting-info a {
+            color: white;
             text-decoration: none;
-            transition: color 0.2s ease;
+            font-weight: 500;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            transition: border-color 0.3s ease;
         }
 
-        .info-item a:hover {
-            color: #2980b9;
+        .upcoming-meeting .meeting-info a:hover {
+            border-bottom-color: white;
+        }
+
+        .upcoming-meeting .program-info {
+            margin-top: 20px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .upcoming-meeting .program-status {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .director-info {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            text-align: center;
+            border-left: 4px solid #dc3545;
+        }
+
+        .director-info h4 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .director-info a {
+            color: #dc3545;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .director-info a:hover {
+            color: #c82333;
             text-decoration: underline;
         }
 
@@ -99,33 +143,34 @@
 
         .collapsible-header {
             background: white;
-            padding: 20px 30px;
-            border-radius: 2px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            padding: 25px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             cursor: pointer;
-            transition: all 0.2s ease;
-            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
         }
 
         .collapsible-header:hover {
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border-left-color: #3498db;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+            border-left-color: #dc3545;
         }
 
         .collapsible-header h3 {
             margin: 0;
             color: #2c3e50;
-            font-size: 1.3rem;
-            font-weight: 400;
+            font-size: 1.4rem;
+            font-weight: 500;
             border: none;
             padding: 0;
         }
 
         .collapsible-header .toggle-icon {
             float: right;
-            font-size: 1.2rem;
-            color: #999;
-            transition: transform 0.2s ease;
+            font-size: 1.4rem;
+            color: #dc3545;
+            transition: transform 0.3s ease;
+            font-weight: bold;
         }
 
         .collapsible-header.active .toggle-icon {
@@ -135,13 +180,14 @@
         .collapsible-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: max-height 0.4s ease;
             background: white;
-            margin-top: 1px;
+            margin-top: 2px;
+            border-radius: 0 0 8px 8px;
         }
 
         .collapsible-content.active {
-            max-height: 2000px;
+            max-height: 2500px;
         }
 
         .collapsible-inner {
@@ -160,21 +206,25 @@
         }
 
         table th {
-            background: #f8f9fa;
-            color: #495057;
-            padding: 12px 8px;
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            padding: 15px 10px;
             text-align: left;
             font-weight: 500;
-            border-bottom: 2px solid #dee2e6;
+            border-bottom: 2px solid #c82333;
         }
 
         table td {
-            padding: 10px 8px;
+            padding: 12px 10px;
             border-bottom: 1px solid #f0f0f0;
         }
 
         table tbody tr:hover {
             background-color: #f8f9fa;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #fbfbfb;
         }
 
         .special-note {
@@ -195,8 +245,8 @@
 
         .award-year {
             font-size: 1.2rem;
-            font-weight: 500;
-            color: #2c3e50;
+            font-weight: 600;
+            color: #dc3545;
             margin-bottom: 8px;
         }
 
@@ -207,77 +257,87 @@
 
         .award-details strong {
             color: #495057;
-            font-weight: 500;
+            font-weight: 600;
             display: inline-block;
             min-width: 80px;
         }
 
         .meetings-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
         }
 
         .meeting-item {
             background: white;
-            padding: 15px;
-            border-radius: 2px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            transition: all 0.2s ease;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
         }
 
         .meeting-item:hover {
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-left-color: #dc3545;
+            transform: translateY(-2px);
         }
 
         .meeting-year {
-            font-weight: 500;
+            font-weight: 600;
             color: #2c3e50;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
         }
 
         .meeting-year a {
-            color: #3498db;
+            color: #dc3545;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .meeting-year a:hover {
+            color: #c82333;
             text-decoration: underline;
         }
 
         .meeting-location {
             color: #666;
             font-size: 0.9rem;
+            line-height: 1.4;
         }
 
         .links-section {
             background: white;
-            padding: 30px;
-            border-radius: 2px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             text-align: center;
+            border-left: 4px solid #dc3545;
         }
 
         .links-section h4 {
             color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            font-weight: 400;
+            margin-bottom: 18px;
+            font-size: 1.2rem;
+            font-weight: 500;
         }
 
         .email-links {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .email-links a {
-            color: #e74c3c;
+            color: #dc3545;
             text-decoration: none;
-            margin: 0 8px;
-            font-weight: 400;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
         .email-links a:hover {
+            color: #c82333;
             text-decoration: underline;
         }
 
@@ -285,22 +345,23 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .external-links a {
             color: #34495e;
             text-decoration: none;
-            padding: 8px 15px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
+            padding: 10px 18px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
             font-size: 0.9rem;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         .external-links a:hover {
-            background-color: #f8f9fa;
-            border-color: #bbb;
+            background-color: #dc3545;
+            color: white;
+            border-color: #dc3545;
         }
 
         @media (max-width: 768px) {
@@ -309,12 +370,19 @@
             }
 
             .header h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
-            .info-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
+            .upcoming-meeting {
+                padding: 30px 20px;
+            }
+
+            .upcoming-meeting h3 {
+                font-size: 1.5rem;
+            }
+
+            .upcoming-meeting .meeting-info {
+                font-size: 1.1rem;
             }
 
             .meetings-grid {
@@ -336,20 +404,21 @@
             }
 
             .collapsible-header {
-                padding: 15px 20px;
+                padding: 20px;
             }
 
             .collapsible-inner {
-                padding: 20px;
+                padding: 25px 20px;
             }
         }
 
         @media (max-width: 500px) {
             .header h1 {
-                font-size: 1.7rem;
+                font-size: 1.8rem;
             }
 
-            .basic-info,
+            .upcoming-meeting,
+            .director-info,
             .collapsible-header,
             .links-section {
                 padding: 20px;
@@ -369,20 +438,173 @@
             <h2>Econometric Theory, Methods and Empirical Applications</h2>
         </header>
 
-        <div class="basic-info">
-            <div class="info-grid">
-                <div class="info-item">
-                    <h4>MEG Director/Coordinator</h4>
-                    <p><a href="https://economics.indiana.edu/about/faculty/chang-yoosoon.html">Yoosoon Chang</a><br>
-                    Indiana University</p>
+        <section class="upcoming-meeting">
+            <h3>Upcoming MEG 2025 Meeting</h3>
+            <div class="meeting-info">
+                <a href="https://economics.illinois.edu/">University of Illinois at Urbana-Champaign</a>
+            </div>
+            <div class="meeting-info">May 2025</div>
+            <div class="program-info">
+                The 34th Annual Meeting of the Midwest Econometrics Group will feature presentations of original research in econometric theory, methods, and empirical applications.
+            </div>
+            <div class="program-status">
+                Program details and registration information will be available soon.
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="director-info">
+                <h4>MEG Director/Coordinator</h4>
+                <p><a href="https://economics.indiana.edu/about/faculty/chang-yoosoon.html">Yoosoon Chang</a><br>
+                Indiana University</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3>MEG Meetings</h3>
+            <div class="meetings-grid">
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="https://economics.illinois.edu/">2025</a></div>
+                    <div class="meeting-location">University of Illinois (Urbana-Champaign)</div>
                 </div>
-                <div class="info-item">
-                    <h4>Upcoming MEG 2025 Meeting</h4>
-                    <p><a href="https://economics.illinois.edu/">University of Illinois at Urbana-Champaign</a><br>
-                    2025</p>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2024.pdf">2024</a></div>
+                    <div class="meeting-location">University of Kentucky (Lexington)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2023.pdf">2023</a></div>
+                    <div class="meeting-location">Federal Reserve Bank of Cleveland</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2022.pdf">2022</a></div>
+                    <div class="meeting-location">Michigan State University (East Lansing)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year">2021</div>
+                    <div class="meeting-location">Postponed due to COVID-19</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year">2020</div>
+                    <div class="meeting-location">Postponed due to COVID-19</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2019.pdf">2019</a></div>
+                    <div class="meeting-location">Ohio State University (Columbus)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2018.pdf">2018</a></div>
+                    <div class="meeting-location">University of Wisconsin (Madison)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2017.pdf">2017</a></div>
+                    <div class="meeting-location">Texas A&M University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2016.pdf">2016</a></div>
+                    <div class="meeting-location">University of Illinois (Urbana-Champaign)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2015.pdf">2015</a></div>
+                    <div class="meeting-location">Federal Reserve Bank of St. Louis</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2014.pdf">2014</a></div>
+                    <div class="meeting-location">University of Iowa (Iowa City)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2013.pdf">2013</a></div>
+                    <div class="meeting-location">Indiana University (Bloomington)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2012.pdf">2012</a></div>
+                    <div class="meeting-location">University of Kentucky (Lexington)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2011.pdf">2011</a></div>
+                    <div class="meeting-location">University of Chicago (Booth)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2010.pdf">2010</a></div>
+                    <div class="meeting-location">Washington University (St. Louis)</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2009.pdf">2009</a></div>
+                    <div class="meeting-location">Purdue University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2008.pdf">2008</a></div>
+                    <div class="meeting-location">University of Kansas</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2007.pdf">2007</a></div>
+                    <div class="meeting-location">St. Louis University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2006.pdf">2006</a></div>
+                    <div class="meeting-location">University of Cincinnati</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2005.pdf">2005</a></div>
+                    <div class="meeting-location">Southern Illinois University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2004.pdf">2004</a></div>
+                    <div class="meeting-location">Northwestern University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2003.pdf">2003</a></div>
+                    <div class="meeting-location">University of Missouri</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2002.pdf">2002</a></div>
+                    <div class="meeting-location">Ohio State University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2001.pdf">2001</a></div>
+                    <div class="meeting-location">Federal Reserve Bank of Kansas City</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/2000.pdf">2000</a></div>
+                    <div class="meeting-location">University of Chicago</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1999.pdf">1999</a></div>
+                    <div class="meeting-location">Iowa State University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1998.pdf">1998</a></div>
+                    <div class="meeting-location">Indiana University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1997.pdf">1997</a></div>
+                    <div class="meeting-location">Michigan State University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1996.pdf">1996</a></div>
+                    <div class="meeting-location">University of Wisconsin</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1995.pdf">1995</a></div>
+                    <div class="meeting-location">Washington University</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1994.pdf">1994</a></div>
+                    <div class="meeting-location">University of Iowa</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1993.pdf">1993</a></div>
+                    <div class="meeting-location">University of Illinois</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1992.pdf">1992</a></div>
+                    <div class="meeting-location">Federal Reserve Bank of Minneapolis</div>
+                </div>
+                <div class="meeting-item">
+                    <div class="meeting-year"><a href="programs/1991.pdf">1991</a></div>
+                    <div class="meeting-location">University of Notre Dame</div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <div class="collapsible-section">
             <div class="collapsible-header" onclick="toggleSection('awards')">
@@ -498,152 +720,6 @@
                 </div>
             </div>
         </div>
-
-        <section class="section">
-            <h3>MEG Meetings</h3>
-            <div class="meetings-grid">
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="https://economics.illinois.edu/">2025</a></div>
-                    <div class="meeting-location">University of Illinois (Urbana-Champaign)</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2024.pdf">2024</a></div>
-                    <div class="meeting-location">University of Kentucky (Lexington)</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2023.pdf">2023</a></div>
-                    <div class="meeting-location">Federal Reserve Bank of Cleveland</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2022.pdf">2022</a></div>
-                    <div class="meeting-location">Michigan State University (East Lansing)</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year">2021</div>
-                    <div class="meeting-location">Postponed due to COVID-19</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year">2020</div>
-                    <div class="meeting-location">Postponed due to COVID-19</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2019.pdf">2019</a></div>
-                    <div class="meeting-location">Ohio State University (Columbus)</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2018.pdf">2018</a></div>
-                    <div class="meeting-location">University of Wisconsin (Madison)</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2017.pdf">2017</a></div>
-                    <div class="meeting-location">Texas A&M University</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2016.pdf">2016</a></div>
-                    <div class="meeting-location">University of Illinois (Urbana-Champaign)</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2015.pdf">2015</a></div>
-                    <div class="meeting-location">Federal Reserve Bank of St. Louis</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2014.pdf">2014</a></div>
-                    <div class="meeting-location">University of Iowa (Iowa City)</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2013.pdf">2013</a></div>
-                    <div class="meeting-location">Indiana University (Bloomington)</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2012.pdf">2012</a></div>
-                    <div class="meeting-location">University of Kentucky (Lexington)</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="http://faculty.chicagobooth.edu/midwest.econometrics/index.html">2011</a></div>
-                    <div class="meeting-location">University of Chicago (Booth)</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2010.pdf">2010</a></div>
-                    <div class="meeting-location">Washington University (St. Louis)</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2009.pdf">2009</a></div>
-                    <div class="meeting-location">Purdue University</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2008.pdf">2008</a></div>
-                    <div class="meeting-location">University of Kansas</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="http://pages.slu.edu/faculty/rapachde/MEG_07.htm">2007</a></div>
-                    <div class="meeting-location">St. Louis University</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2006.pdf">2006</a></div>
-                    <div class="meeting-location">University of Cincinnati</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2005.pdf">2005</a></div>
-                    <div class="meeting-location">Southern Illinois University</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2004.html">2004</a></div>
-                    <div class="meeting-location">Northwestern University</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2003.html">2003</a></div>
-                    <div class="meeting-location">University of Missouri</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2002.html">2002</a></div>
-                    <div class="meeting-location">Ohio State University</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2001.html">2001</a></div>
-                    <div class="meeting-location">Federal Reserve Bank of Kansas City</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/2000.html">2000</a></div>
-                    <div class="meeting-location">University of Chicago</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/1999.html">1999</a></div>
-                    <div class="meeting-location">Iowa State University</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/1998.html">1998</a></div>
-                    <div class="meeting-location">Indiana University</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/1997.html">1997</a></div>
-                    <div class="meeting-location">Michigan State University</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/1996.html">1996</a></div>
-                    <div class="meeting-location">University of Wisconsin</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/1995.html">1995</a></div>
-                    <div class="meeting-location">Washington University</td>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/1994.html">1994</a></div>
-                    <div class="meeting-location">University of Iowa</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/1993.html">1993</a></div>
-                    <div class="meeting-location">University of Illinois</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/1992.html">1992</a></div>
-                    <div class="meeting-location">Federal Reserve Bank of Minneapolis</div>
-                </div>
-                <div class="meeting-item">
-                    <div class="meeting-year"><a href="programs/1991.html">1991</a></div>
-                    <div class="meeting-location">University of Notre Dame</div>
-                </div>
-            </div>
-        </section>
 
         <section class="links-section">
             <h4>Email List</h4>
