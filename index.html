@@ -149,6 +149,9 @@
             cursor: pointer;
             transition: all 0.3s ease;
             border-left: 4px solid transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .collapsible-header:hover {
@@ -163,14 +166,15 @@
             font-weight: 500;
             border: none;
             padding: 0;
+            flex: 1;
         }
 
         .collapsible-header .toggle-icon {
-            float: right;
             font-size: 1.4rem;
             color: #dc3545;
             transition: transform 0.3s ease;
             font-weight: bold;
+            line-height: 1;
         }
 
         .collapsible-header.active .toggle-icon {
