@@ -315,63 +315,6 @@
             color: white;
             border-color: #dc3545;
         }
-        
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.5);
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 40px;
-            border-radius: 8px;
-            max-width: 800px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            position: relative;
-        }
-        .modal-close {
-            color: #aaa;
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            font-size: 35px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-        .modal-close:hover,
-        .modal-close:focus {
-            color: #dc3545;
-        }
-        .modal-content h3 {
-            color: #2c3e50;
-            margin-bottom: 25px;
-            font-size: 1.6rem;
-            font-weight: 500;
-            text-align: center;
-        }
-        .statement-box {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 8px;
-            border-left: 4px solid #dc3545;
-            line-height: 1.8;
-        }
-        .statement-box p {
-            margin-bottom: 15px;
-        }
-        .statement-box p:last-child {
-            margin-bottom: 0;
-        }
-        
         @media (max-width: 768px) {
             .container {
                 padding: 30px 15px;
@@ -408,10 +351,6 @@
             .collapsible-inner {
                 padding: 25px 20px;
             }
-            .modal-content {
-                margin: 10% 20px;
-                padding: 30px 25px;
-            }
         }
         @media (max-width: 500px) {
             .header h1 {
@@ -436,18 +375,16 @@
             <h1>Midwest Econometrics Group</h1>
             <h2>Econometric Theory, Methods and Empirical Applications</h2>
         </header>
-        
-        <section class="upcoming-meeting">
-            <h3>Upcoming MEG 2025 Meeting</h3>
-            <div class="meeting-info">
-                <a href="https://economics.illinois.edu/">University of Illinois at Urbana-Champaign</a>
-            </div>
-            <div class="meeting-info">3–4 October, 2025</div>
-            <div class="program-info">
-                <a href="https://midwesteconometrics.github.io/midwesteconometrics/programs/2025.pdf">View Program (PDF)</a>
-            </div>
-        </section>
-        
+<section class="upcoming-meeting">
+    <h3>Upcoming MEG 2025 Meeting</h3>
+    <div class="meeting-info">
+        <a href="https://economics.illinois.edu/">University of Illinois at Urbana-Champaign</a>
+    </div>
+    <div class="meeting-info">3–4 October, 2025</div>
+    <div class="program-info">
+        <a href="https://midwesteconometrics.github.io/midwesteconometrics/programs/2025.pdf">View Program (PDF)</a>
+    </div>
+</section>
         <section class="section">
             <div class="director-info">
                 <h4>MEG Director/Coordinator</h4>
@@ -455,7 +392,6 @@
                 Indiana University</p>
             </div>
         </section>
-        
         <section class="section">
             <h3>MEG Meetings</h3>
             <div class="meetings-grid">
@@ -473,7 +409,6 @@
                 </div>
             </div>
         </section>
-        
         <div class="collapsible-section">
             <div class="collapsible-header" onclick="toggleSection('previous-meetings')">
                 <h3>Previous Meetings (2021-1991)</h3>
@@ -610,63 +545,43 @@
                 </div>
             </div>
         </div>
-        
-        <div class="collapsible-section">
-            <div class="collapsible-header" onclick="toggleSection('awards')">
-                <h3>MEG Best Student Paper Award</h3>
-                <span class="toggle-icon">+</span>
-            </div>
-            <div class="collapsible-content" id="awards">
-                <div class="collapsible-inner">
-                    <div class="award-entry">
-                        <div class="award-year">2025</div>
-                        <div class="award-details"><strong>Host:</strong> University of Illinois at Urbana-Champaign</div>
-                        <div class="award-details"><strong>Winners:</strong> 
-                            <a href="https://github.com/midwesteconometrics/midwesteconometrics/awards/Van%20Dijcke.pdf" target="_blank">David Van Dijcke</a>, 
-                            <a href="https://github.com/midwesteconometrics/midwesteconometrics/awards/Simon.pdf" target="_blank">Pedro Simon</a>
-                        </div>
-                        <div class="award-details"><strong>Selectors:</strong> Marcelo Cunha Medeiros, Jeff Wooldridge, Michael McCracken</div>
-                    </div>
-                    <div class="award-entry">
-                        <div class="award-year">2024</div>
-                        <div class="award-details"><strong>Host:</strong> University of Kentucky</div>
-                        <div class="award-details"><strong>Winners:</strong> 
-                            <a href="https://github.com/midwesteconometrics/midwesteconometrics/awards/Kaicheng%20Chen.pdf" target="_blank">Kaicheng Chen</a>, 
-                            <a href="https://github.com/midwesteconometrics/midwesteconometrics/awards/Bruno%20Fava.pdf" target="_blank">Bruno Fava</a>
-                        </div>
-                        <div class="award-details"><strong>Selectors:</strong> Christopher Bollinger, Michael McCracken, Jeffrey Wooldridge</div>
-                    </div>
-                    <div class="award-entry">
-                        <div class="award-year">2023</div>
-                        <div class="award-details"><strong>Host:</strong> Cleveland FED</div>
-                        <div class="award-details"><strong>Winners:</strong> 
-                            <a href="https://github.com/midwesteconometrics/midwesteconometrics/awards/Yukun-Ma.pdf" target="_blank">Yukun Ma</a>, 
-                            <a href="https://github.com/midwesteconometrics/midwesteconometrics/awards/Aaron-Mora.pdf" target="_blank">Aaron Mora Melendez</a>
-                        </div>
-                        <div class="award-details"><strong>Selectors:</strong> Michael McCracken, James Mitchell, Jeffrey Wooldridge</div>
-                    </div>
+<div class="collapsible-section">
+    <div class="collapsible-header" onclick="toggleSection('awards')">
+        <h3>MEG Best Student Paper Award</h3>
+        <span class="toggle-icon">+</span>
+    </div>
+    <div class="collapsible-content" id="awards">
+        <div class="collapsible-inner">
+            <div class="award-entry">
+                <div class="award-year">2025</div>
+                <div class="award-details"><strong>Host:</strong> University of Illinois at Urbana-Champaign</div>
+                <div class="award-details"><strong>Winners:</strong> 
+                    <a href="https://github.com/midwesteconometrics/midwesteconometrics/awards/Van%20Dijcke.pdf" target="_blank">David Van Dijcke</a>, 
+                    <a href="https://github.com/midwesteconometrics/midwesteconometrics/awards/Simon.pdf" target="_blank">Pedro Simon</a>
                 </div>
+                <div class="award-details"><strong>Selectors:</strong>Marcelo Cunha Medeiros, Jeff Wooldridge, Michael McCracken</div>
+            </div>
+            <div class="award-entry">
+                <div class="award-year">2024</div>
+                <div class="award-details"><strong>Host:</strong> University of Kentucky</div>
+                <div class="award-details"><strong>Winners:</strong> 
+                    <a href="https://github.com/midwesteconometrics/midwesteconometrics/awards/Kaicheng%20Chen.pdf" target="_blank">Kaicheng Chen</a>, 
+                    <a href="https://github.com/midwesteconometrics/midwesteconometrics/awards/Bruno%20Fava.pdf" target="_blank">Bruno Fava</a>
+                </div>
+                <div class="award-details"><strong>Selectors:</strong> Christopher Bollinger, Michael McCracken, Jeffrey Wooldridge</div>
+            </div>
+            <div class="award-entry">
+                <div class="award-year">2023</div>
+                <div class="award-details"><strong>Host:</strong> Cleveland FED</div>
+                <div class="award-details"><strong>Winners:</strong> 
+                    <a href="https://github.com/midwesteconometrics/midwesteconometrics/awards/Yukun-Ma.pdf" target="_blank">Yukun Ma</a>, 
+                    <a href="https://github.com/midwesteconometrics/midwesteconometrics/awards/Aaron-Mora.pdf" target="_blank">Aaron Mora Melendez</a>
+                </div>
+                <div class="award-details"><strong>Selectors:</strong> Michael McCracken, James Mitchell, Jeffrey Wooldridge</div>
             </div>
         </div>
-        
-        <div class="collapsible-section">
-            <div class="collapsible-header" onclick="toggleSection('marsh-award')">
-                <h3>Lawrence C. Marsh Appreciation Award (2025)</h3>
-                <span class="toggle-icon">+</span>
-            </div>
-            <div class="collapsible-content" id="marsh-award">
-                <div class="collapsible-inner">
-                    <p style="margin-bottom: 20px; line-height: 1.8;">
-                        At the 2025 MEG Annual Meeting, we honored <strong>Lawrence C. Marsh</strong>, founder of the Midwest Econometrics Group, for his visionary leadership and enduring contributions to our community. Larry's dedication over the past three decades has shaped MEG into the vibrant scholarly community it is today, and we are all deeply grateful for his foundational work and ongoing support.
-                    </p>
-                    
-                    <p style="margin-bottom: 20px; line-height: 1.8;">
-                        <a href="#" onclick="openAppreciationStatement(event)" style="color: #dc3545; text-decoration: none; font-weight: 500; border-bottom: 2px solid rgba(220, 53, 69, 0.3); transition: border-color 0.3s ease;">Read the full appreciation statement presented at the ceremony</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        
+    </div>
+</div>
         <div class="collapsible-section">
             <div class="collapsible-header" onclick="toggleSection('fellows')">
                 <h3>Fellows of the Midwest Econometrics Group</h3>
@@ -760,7 +675,6 @@
                 </div>
             </div>
         </div>
-
         <section class="links-section">
             <h4>Email List</h4>
             <div class="email-links">
@@ -776,7 +690,6 @@
             </div>
         </section>
     </div>
-
     <script>
         function toggleSection(sectionId) {
             const content = document.getElementById(sectionId);
